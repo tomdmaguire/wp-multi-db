@@ -2,15 +2,15 @@
 
 class PdoFactory
 {
-    private static $blacklistKey = 'db_blacklist';
-    private $blacklistTtl = 30;
-    
     private $hosts = array();
     private $db;
     private $user;
     private $password;
     private $port;
     private $charset;
+
+    private $blacklistKey = 'db_blacklist';
+    private $blacklistTtl = 30;
 
     function __construct($hosts, $db, $user, $password, $port = '3306', $charset = 'utf8')
     {
