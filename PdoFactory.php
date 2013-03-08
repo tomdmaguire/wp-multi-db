@@ -45,7 +45,7 @@ class PdoFactory
     {
         $blacklist = apc_fetch($this->blacklistKey) ?: array();
         $blacklist[] = $host;
-        apc_store($this->blacklistKey, $blacklist, $this->$blacklistTtl);
+        apc_store($this->blacklistKey, $blacklist, $this->blacklistTtl);
     }
 
     private function getAvailableHosts()

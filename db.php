@@ -111,7 +111,13 @@ class WpMultiDb extends wpdb {
     }
 }
 
-require_once 'db-config.php';
+if(defined('DB_CONFIG_FILE')){
+    require_once DB_CONFIG_FILE;    
+} else {
+    require_once ABSPATH . 'wp-content/db-config.php';
+}
+
+
 $wpdb = new WpMultiDb($hosts, DB_NAME, DB_USER, DB_PASSWORD, $port, DB_CHARSET);
 
 ?>
