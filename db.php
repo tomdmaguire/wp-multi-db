@@ -2,8 +2,10 @@
 
 require_once 'PdoFactory.php';
 
-class WpMultiDb extends wpdb {
-
+class WpMultiDb extends wpdb
+{
+    const MYSQL_VERSION = 5.5;
+    
     private $hosts = array();
     private $db;
     private $user;
@@ -96,6 +98,11 @@ class WpMultiDb extends wpdb {
         $this->last_result = $this->result;
         $this->num_rows = count($this->result);
         return $this->num_rows;
+    }
+
+    public function db_version()
+    {
+        return static::MYSQL_VERSION;
     }
 
     /**
